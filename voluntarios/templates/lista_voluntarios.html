@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+{% block title %}Lista de Voluntarios{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold">Listado de voluntarios</h2>
+        <a href="{% url 'crear_voluntario' %}" class="btn btn-success">+ Nuevo voluntario</a>
+    </div>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            {% if voluntarios %}
+                <table class="table table-hover align-middle">
+                    <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Email</th>
+                            <th>Teléfono</th>
+                            <th>Registrado</th>
+                            <th class="text-end">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for v in voluntarios %}
+                        <tr>
+                            <td>{{ v.nombre }}</td>
+                            <td>{{ v.email }}</td>
+                            <td>{{ v.telefono|default:"—" }}</td>
+                            <td>{{ v.fecha_registro|date:"d/m/Y" }}</td>
+                            <td class="text-end">
+                                <a href="{% url 'editar_voluntario' v.id %}" class="btn btn-primary btn-sm">Editar</a>
+                                <a href="{% url 'borrar_voluntario' v.id %}" class="btn btn-danger btn-sm">Borrar</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+
+            {% else %}
+                <p class="text-muted">No hay voluntarios registrados aún.</p>
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
