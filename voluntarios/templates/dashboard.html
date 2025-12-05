@@ -3,8 +3,14 @@
 {% block title %}Dashboard de Voluntarios{% endblock %}
 
 {% block content %}
-
-
+<div class="d-flex justify-content-around mt-5">
+<a href="{% url 'crear_evento' %}" class="btn btn-success">
+        + Nuevo evento
+    </a>
+    <a href="{% url 'crear_voluntario' %}" class="btn btn-success">
+        + Nuevo voluntario
+    </a>
+    </div>
 <div class="container mt-4">
     <h1 class="mb-4">Próximos Eventos de Voluntariado</h1>
     {% if eventos %}

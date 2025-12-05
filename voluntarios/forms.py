@@ -6,8 +6,7 @@ class EventoForm(forms.ModelForm):
         model = Evento
         fields = ['titulo', 'descripcion', 'fecha', 'voluntarios']
         widgets = {
-            'fecha': forms.DateInput(attrs={'type': 'date'}),
-            'voluntarios': forms.CheckboxSelectMultiple(),
+            'fecha': forms.DateInput(attrs={'type': 'date'})
         }
 
 class VoluntarioForm(forms.ModelForm):

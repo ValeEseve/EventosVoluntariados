@@ -15,7 +15,7 @@ class Evento(models.Model):
     titulo = models.CharField(max_length=255)
     descripcion = models.TextField()
     fecha = models.DateField()
-    voluntarios = models.ManyToManyField(Voluntario, related_name="eventos")
+    voluntarios = models.ManyToManyField(Voluntario, related_name="eventos", blank=True)
 
     def __str__(self):
         return self.titulo
