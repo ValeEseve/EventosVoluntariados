@@ -13,9 +13,11 @@
                 {% csrf_token %}
                 {{ form.as_p }}
 
+                {{ form_asignar }}
                 <button type="submit" class="btn btn-primary mt-3">Guardar cambios</button>
                 <a href="{% url 'lista_voluntarios' %}" class="btn btn-secondary mt-3">Cancelar</a>
             </form>
+           
 
         </div>
     </div>
